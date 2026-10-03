@@ -1,2 +1,2 @@
 # Thesis
-DESIGN AND DEVELOPMENT OF A LORA-BASED IOT WEATHER-RESPONSIVE SOIL MOISTURE MANAGEMENT SYSTEM WITH SOLAR BACKUP POWER AND AUTOMATED DRIP IRRIGATION FOR HIGHLAND FARMS IN MONTALBAN
+Design and Development of an IoT-Enabled Edge AI Post-Harvest Storage System for Automated Environmental Monitoring and Control of Harvested Crops in Sitio Inigan, Barangay San Rafael, Rodriguez, Rizal.
