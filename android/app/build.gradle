@@ -1,0 +1,42 @@
+plugins {
+    id "com.android.application"
+}
+
+def webRoot = rootProject.projectDir.parentFile
+def generatedWebAssets = layout.buildDirectory.dir("generated/webAssets")
+
+tasks.register("syncWebAssets", Copy) {
+    from(webRoot) {
+        include "index.html", "style.css", "app.js", "images/**"
+    }
+    into(generatedWebAssets.map { it.dir("www") })
+}
+
+android {
+    namespace "edu.colegiomontalban.storageportal"
+    compileSdk 35
+    buildToolsVersion "35.0.0"
+
+    defaultConfig {
+        applicationId "edu.colegiomontalban.storageportal"
+        minSdk 23
+        targetSdk 34
+        versionCode 1
+        versionName "1.0.0"
+    }
+
+    sourceSets {
+        main {
+            assets.srcDir(generatedWebAssets)
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+}
+
+tasks.named("preBuild").configure {
+    dependsOn("syncWebAssets")
+}

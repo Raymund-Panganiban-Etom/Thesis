@@ -1,0 +1,2 @@
+edu.colegiomontalban.storageportal:style/AppTheme = 0x7f020000
+edu.colegiomontalban.storageportal:drawable/ic_launcher = 0x7f010000
