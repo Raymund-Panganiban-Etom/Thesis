@@ -33,9 +33,9 @@ source if Android prompts. Launch **Storage Portal**, choose a crop, then tap
 so basically, just download the Edge-AI-Storage-Portal-v1.0.0.apk
 then this android folder is a editable (open source to improve this application)
 
-here's the convo for question:
+## here's the convo for question:
 
-give me step by step how to install that application in my phone
+## 1. give me step by step how to install that application in my phone
 
 ## Install the app using a USB cable
 
@@ -56,7 +56,7 @@ give me step by step how to install that application in my phone
 You can turn off **Allow from this source** again after installation.
 
 
-so apk version all needed? then what about the android folder? is it a folder where it can edit for future update?
+## 2. so apk version all needed? then what about the android folder? is it a folder where it can edit for future update?
 
 
 Yes—the **APK contains what your phone needs to install and run the app**. You don’t need to copy the `android` folder to your phone.
@@ -67,7 +67,7 @@ For a future update, edit the relevant project files, rebuild from the `android`
 
 
 
-then this folder will be open in android studio and after improvement or revise, the android studio can make the apk file?
+## 3. then this folder will be open in android studio and after improvement or revise, the android studio can make the apk file?
 
 Yes. Open the **`android` folder** in Android Studio as the project. Android Studio can build an APK after you revise the app.
 
