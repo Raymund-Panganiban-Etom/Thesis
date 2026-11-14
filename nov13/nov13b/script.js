@@ -505,7 +505,6 @@ function drawLog() {
   ).join('');
 }
 
-/* Updated to target multiple DOM elements using data attributes */
 function updateFans(fans) {
   const speedEls = document.querySelectorAll('.fan-speed');
   const statusEls = document.querySelectorAll('.fan-status');
@@ -608,7 +607,32 @@ function tick() {
   }
 
   const cropData = getCropState(p.n);
-  if (!cropData || cropData.t === null) return;
+  if (!cropData) return;
+
+  // UPDATED: Handle missing SHT31 hardware gracefully without freezing the UI
+  if (cropData.t === null || cropData.h === null) {
+    g = (cropData.e !== null) ? cropData.e : 0;
+    $('gV').textContent = g.toFixed(2);
+    $('tV').textContent = '--';
+    $('hV').textContent = '--';
+    
+    ring('tR', 0);
+    ring('hR', 0);
+    draw('var(--bad)', p.e);
+    
+    $('gS').style.color = 'var(--bad)';
+    $('gS').textContent = 'SHT31 Sensor Disconnected';
+    
+    $('aP').textContent = 'Hardware Error';
+    $('aT').textContent = 'SHT31 Sensor Not Found';
+    $('aD').textContent = 'Check wiring and I2C address.';
+    $('aB').classList.add('warn');
+    
+    hist.push(g);
+    hist.shift();
+    updateFans(RT.f);
+    return;
+  }
 
   g = cropData.e;
   const t = cropData.t;
